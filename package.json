@@ -11,5 +11,8 @@
     "sender"
   ],
   "author": "Tarique Mosharraf applandsys@gmail.com",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "smtp-connection": "^4.0.2"
+  }
 }

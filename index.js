@@ -20,27 +20,26 @@ validateDomain('applandsys1982025@gmail.com');
 
 const SMTPConnection = require('smtp-connection');
 
-const verifyEmail = (email) => {
-  const domain = email.split('@')[1];
+const pingEmail = (email) => {
+  const domain = email.split('@')[1];  // Extract the domain part
   const connection = new SMTPConnection({
-    host: 'smtp.' + domain, // or use MX records to get the exact mail server
-    port: 25,
+    host: 'smtp.' + domain, // SMTP server (you can also use MX records here)
+    port: 25,  // SMTP default port
   });
 
   connection.connect(() => {
-    connection.helo('localhost'); // Initiate handshake with the server
-    connection.mail('test@chatpix.xyz'); // Set a sender email for the verification
+    connection.helo('localhost');  // Send HELO command
+    connection.mail('test@chatpix.xyz');  // Sender email
     connection.rcpt(email, (err, response) => {
       if (err) {
-        console.log(`Error: ${err}`);
-        console.log('Email is invalid or not active');
+        console.log('Email is invalid or not deliverable.');
       } else {
-        console.log(`Response: ${response}`);
-        console.log('Email is deliverable and active');
+        console.log('Email is valid and can receive messages.');
       }
-      connection.quit(); // Close the connection
+      connection.quit();  // Close the connection
     });
   });
 };
 
-verifyEmail('applandsys@gmail.com');
+// Replace 'example@domain.com' with the email you want to ping
+pingEmail('applandsys@gmail.com');
