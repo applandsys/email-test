@@ -47,3 +47,5 @@ const pingEmail = async (email) => {
 // Replace 'example@domain.com' with the email you want to ping
 pingEmail('applandsys@gmail.com');
 
+console.log("All is end");
+
