@@ -151,7 +151,7 @@ verifier.verify( 'amarsonarbangla255555255585@yahoo.com', function( err, info ){
   if( err ) console.log(err);
   else{
     console.log( "Success (T/F): " + info.success );
-    console.log( "Info: " + info.info );
+    console.log( "Info: " + info.code );
  
   }
 });
