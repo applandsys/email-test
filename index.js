@@ -134,7 +134,7 @@ verifyEmail('applandsys@gmail.com')
 
   const emailExistence = require('email-existence');
 
-emailExistence.check('joyto@live.com', function(error, response){
+emailExistence.check('joyto343434tariqisinshallawin@live.com', function(error, response){
   if (error) {
     console.error('Error:', error);
   } else {
@@ -147,7 +147,7 @@ emailExistence.check('joyto@live.com', function(error, response){
 var verifier = require('email-verify');
 var infoCodes = verifier.infoCodes;
  
-verifier.verify( 'joyto@live.com', function( err, info ){
+verifier.verify( 'joyto343434tariqisinshallawin@live.com', function( err, info ){
   if( err ) console.log(err);
   else{
     console.log( "2nd timeSuccess (T/F): " + info.success );
