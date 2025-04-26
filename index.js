@@ -58,6 +58,9 @@ const dns = require('dns');
 const net = require('net');
 
 async function verifyEmail(email) {
+
+    console.log("Mail test stared");
+
   const [_, domain] = email.split('@');
 
   // Step 1: Lookup MX records
