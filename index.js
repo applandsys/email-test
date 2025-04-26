@@ -151,34 +151,8 @@ verifier.verify( 'amarsonarbangla255555255585@yahoo.com', function( err, info ){
   if( err ) console.log(err);
   else{
     console.log( "Success (T/F): " + info.success );
-    console.log( "Info: " + info );
+    console.log( "Info: " + info.info );
  
   }
 });
-
-
-const validator = require('smtp-validate-email');
-
-const email = 'amarsonarbangla255555255585@yahoo.com';
-
-const options = {
-  sender: 'info@chatpix.xyz', // sender email address, must be real
-  fqdn: 'chatpix.xyz',        // your domain
-  timeout: 5000,                 // timeout in ms
-  port: 25,                      // port to connect
-};
-
-validator(email, options, function(err, result) {
-  if (err) {
-    console.error('Error:', err);
-  } else {
-    console.log('Result:', result);
-    if (result.success) {
-      console.log('Email address is valid!');
-    } else {
-      console.log('Invalid email address.');
-    }
-  }
-});
-
 
