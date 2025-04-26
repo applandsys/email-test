@@ -14,4 +14,4 @@ const validateDomain = (email) => {
   });
 };
 
-validateDomain('applandsys@gmail.com');
+validateDomain('applandsys1982025@gmail.com');
