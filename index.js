@@ -54,6 +54,8 @@ console.log("All is end");
 
 */
 
+/*
+
 const dns = require('dns');
 const net = require('net');
 
@@ -126,4 +128,17 @@ async function verifyEmail(email) {
 verifyEmail('applandsys@gmail.com')
   .then(result => console.log(result))
   .catch(err => console.error('Error:', err));
+
+
+  **/
+
+  const emailExistence = require('email-existence');
+
+emailExistence.check('applandsys@gmail.com', function(error, response){
+  if (error) {
+    console.error('Error:', error);
+  } else {
+    console.log('Email exists:', response);
+  }
+});
 
