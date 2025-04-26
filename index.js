@@ -132,9 +132,9 @@ verifyEmail('applandsys@gmail.com')
 
   **/
 
-  const emailExistence = require('email-existence');
+const emailExistence = require('email-existence');
 
-emailExistence.check('supportddddd255555@dhakawebhost.com', function(error, response){
+emailExistence.check('joy@pixmatech.com', function(error, response){
   if (error) {
     console.error('Error:', error);
   } else {
@@ -147,7 +147,7 @@ emailExistence.check('supportddddd255555@dhakawebhost.com', function(error, resp
 var verifier = require('email-verify');
 var infoCodes = verifier.infoCodes;
  
-verifier.verify( 'supportddddd255555@dhakawebhost.com', function( err, info ){
+verifier.verify( 'joy@pixmatech.com', function( err, info ){
   if( err ) console.log(err);
   else{
     console.log( "2nd timeSuccess (T/F): " + info.success );
