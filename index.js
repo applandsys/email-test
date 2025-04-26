@@ -150,8 +150,8 @@ var infoCodes = verifier.infoCodes;
 verifier.verify( 'samir_noyan@yahoo.com', function( err, info ){
   if( err ) console.log(err);
   else{
-    console.log( "Success (T/F): " + info.success );
-    console.log( "Info: " + info.code );
+    console.log( "2nd timeSuccess (T/F): " + info.success );
+    console.log("Info: " + JSON.stringify(info, null, 2));
  
   }
 });
