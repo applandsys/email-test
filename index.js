@@ -18,28 +18,32 @@ validateDomain('applandsys1982025@gmail.com');
 
 */
 
-const SMTPConnection = require('smtp-connection');
+const nodemailer = require('nodemailer');
 
-const pingEmail = (email) => {
-  const domain = email.split('@')[1];  // Extract the domain part
-  const connection = new SMTPConnection({
-    host: 'smtp.' + domain, // SMTP server (you can also use MX records here)
-    port: 25,  // SMTP default port
+// Function to verify email by sending a test email (no actual email sent)
+const pingEmail = async (email) => {
+  const domain = email.split('@')[1]; // Extract the domain part
+  const transporter = nodemailer.createTransport({
+    host: 'smtp.' + domain, // Use SMTP server (or MX record for more accuracy)
+    port: 25,  // SMTP default port (some servers use 587 or 465 for TLS)
+    secure: false,  // No encryption (you can change to `true` if using 465 for secure connections)
+    tls: {
+      rejectUnauthorized: false,  // Bypass self-signed certificates (if needed)
+    },
   });
 
-  connection.connect(() => {
-    connection.helo('localhost');  // Send HELO command
-    connection.mail('test@chatpix.xyz');  // Sender email
-    connection.rcpt(email, (err, response) => {
-      if (err) {
-        console.log('Email is invalid or not deliverable.');
-      } else {
-        console.log('Email is valid and can receive messages.');
-      }
-      connection.quit();  // Close the connection
-    });
-  });
+  try {
+    // Sending an email without actually sending it, just to check the server
+    await transporter.verify();
+
+    console.log(`Email server for ${email} is reachable.`);
+    console.log('You can safely send emails to this address.');
+  } catch (error) {
+    console.log('Error: ', error);
+    console.log('Email server is not reachable or the email address is invalid.');
+  }
 };
 
 // Replace 'example@domain.com' with the email you want to ping
 pingEmail('applandsys@gmail.com');
+

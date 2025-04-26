@@ -13,6 +13,7 @@
   "author": "Tarique Mosharraf applandsys@gmail.com",
   "license": "ISC",
   "dependencies": {
+    "nodemailer": "^6.10.1",
     "smtp-connection": "^4.0.2"
   }
 }
