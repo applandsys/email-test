@@ -138,7 +138,34 @@ emailExistence.check('samir_noyan2025dfsdfsdf@yahoo.com', function(error, respon
   if (error) {
     console.error('Error:', error);
   } else {
-    console.log('Email exists:', response);
+    console.log('Email exists frist time:', response);
   }
 });
+
+
+// 2nd time 
+const validator = require('smtp-validate-email');
+
+const email = 'samir_noyan2025dfsdfsdf@yahoo.com';
+
+const options = {
+  sender: 'info@chatpix.xyz', // sender email address, must be real
+  fqdn: 'chatpix.xyz',        // your domain
+  timeout: 5000,                 // timeout in ms
+  port: 25,                      // port to connect
+};
+
+validator(email, options, function(err, result) {
+  if (err) {
+    console.error('Error:', err);
+  } else {
+    console.log('Result:', result);
+    if (result.success) {
+      console.log('Email address is valid!');
+    } else {
+      console.log('Invalid email address.');
+    }
+  }
+});
+
 
