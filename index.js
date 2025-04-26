@@ -147,7 +147,7 @@ emailExistence.check('samir_noyan2025dfsdfsdf@yahoo.com', function(error, respon
 var verifier = require('email-verify');
 var infoCodes = verifier.infoCodes;
  
-verifier.verify( 'amarsonarbangla255555255585@yahoo.com', function( err, info ){
+verifier.verify( 'samir_noyan@yahoo.com', function( err, info ){
   if( err ) console.log(err);
   else{
     console.log( "Success (T/F): " + info.success );
